@@ -13,3 +13,7 @@ build/*
 xcuserdata
 profile
 *.moved-aside
+
+OlaMundo/.DS_Store
+
+.DS_Store
