@@ -10,6 +10,16 @@
 
 @implementation Contato
 
-@synthesize _nome, _telefone, _email, _endereco, _site;
+@synthesize nome = _nome;
+@synthesize telefone = _telefone;
+@synthesize email = _email;
+@synthesize endereco = _endereco;
+@synthesize site = _site;
+
+- (NSString *)description
+{
+    NSString *retorno = [NSString stringWithFormat:@"Nome: %@ \n Email: %@",_nome, _email]; 
+    return retorno;
+}
 
 @end

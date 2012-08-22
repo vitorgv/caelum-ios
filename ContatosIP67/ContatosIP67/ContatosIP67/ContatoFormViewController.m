@@ -59,6 +59,15 @@
 
 - (IBAction)cadastrarContato:(id)sender
 {
+    Contato *contato = [[Contato alloc] init];
+    [contato setNome:[nomeTextField text]];
+    [contato setTelefone:[telefoneTextField text]];
+    [contato setEmail:[emailTextField text]];
+    [contato setEndereco:[enderecoTextField text]];
+    [contato setSite:[siteTextField text]];
+    
+    NSLog(@"contato: %@", contato);
+    
     NSMutableDictionary *contatos = [[NSMutableDictionary alloc] init];
     [contatos setObject: [nomeTextField text] forKey:@"nome"];
     [contatos setObject: [telefoneTextField text] forKey:@"telefone"];

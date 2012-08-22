@@ -24,4 +24,14 @@
 
 @property(nonatomic, weak) IBOutlet UILabel *resultadoLabel;
 
+
+
+@property(nonatomic, weak) IBOutlet UISlider *slider1, *slider2;
+
+- (IBAction)alteraValorSlider1:(id)sender;
+- (IBAction)alteraValorSlider2:(id)sender;
+
+- (IBAction)atualizaSlider1:(id)sender;
+- (IBAction)atualizaSlider2:(id)sender;
+
 @end

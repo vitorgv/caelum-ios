@@ -274,6 +274,7 @@
 				90C6712715E2EDDE00FD5349 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
