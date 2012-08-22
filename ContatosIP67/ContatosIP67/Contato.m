@@ -16,7 +16,7 @@
 @synthesize endereco = _endereco;
 @synthesize site = _site;
 
-- (NSString *)description
+- (NSString*)description
 {
     NSString *retorno = [NSString stringWithFormat:@"Nome: %@ \n Email: %@",_nome, _email]; 
     return retorno;

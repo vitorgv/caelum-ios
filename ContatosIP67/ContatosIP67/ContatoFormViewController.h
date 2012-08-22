@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Contato.h"
 
 @interface ContatoFormViewController : UIViewController 
 
 @property(nonatomic, strong) IBOutlet UITextField *nomeTextField, *telefoneTextField, *emailTextField, *enderecoTextField, *siteTextField;
 
-- (IBAction)textFieldReturn:(id)sender;
-//- (IBAction)backgroundTouched:(id)sender;
-
 - (IBAction)cadastrarContato:(id)sender;
+
+- (Contato *)obtemDadosDoFormulario:(id)sender;
+
+- (IBAction)proximoElemento:(UITextField *)textField;
 
 @end

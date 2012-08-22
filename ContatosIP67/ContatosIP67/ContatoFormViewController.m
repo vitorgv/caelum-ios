@@ -45,20 +45,28 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-//-(IBAction)backgroundTouched:(id)sender
-//{
-//    [nomeTextField resignFirstResponder];
-//}
 
--(IBAction)textFieldReturn:(id)sender
-{
-    [sender resignFirstResponder];
-}
 
 @synthesize nomeTextField, telefoneTextField, emailTextField, enderecoTextField, siteTextField;
 
 - (IBAction)cadastrarContato:(id)sender
 {
+    Contato *contato = [self obtemDadosDoFormulario:sender];
+    
+    NSMutableDictionary *contatos = [[NSMutableDictionary alloc] init];
+    [contatos setObject: [contato nome] forKey:@"nome"];
+    [contatos setObject: [contato telefone] forKey:@"telefone"];
+    [contatos setObject: [contato email] forKey:@"email"];
+    [contatos setObject: [contato endereco] forKey:@"endereco"];
+    [contatos setObject: [contato site] forKey:@"site"];
+    
+    NSLog(@"dados: %@", contatos);
+    
+//    [siteTextField resignFirstResponder]; // solucao ruim para ocultar o teclado
+    [[self view] endEditing: YES]; // solucao menos ruim para ocultar o teclado, ainda nao esta bom
+}
+
+- (Contato *)obtemDadosDoFormulario:(id)sender {
     Contato *contato = [[Contato alloc] init];
     [contato setNome:[nomeTextField text]];
     [contato setTelefone:[telefoneTextField text]];
@@ -68,16 +76,34 @@
     
     NSLog(@"contato: %@", contato);
     
-    NSMutableDictionary *contatos = [[NSMutableDictionary alloc] init];
-    [contatos setObject: [nomeTextField text] forKey:@"nome"];
-    [contatos setObject: [telefoneTextField text] forKey:@"telefone"];
-    [contatos setObject: [emailTextField text] forKey:@"email"];
-    [contatos setObject: [enderecoTextField text] forKey:@"endereco"];
-    [contatos setObject: [siteTextField text] forKey:@"site"];
-    
-    NSLog(@"dados: %@", contatos);
-    
+    return contato;
 }
 
+- (IBAction)proximoElemento:(UITextField *)textField 
+{
+    // Campos em ordem: nome, telefone, email, endereco, site.
+    
+    if (textField == [self nomeTextField])
+    {
+        [[self telefoneTextField] becomeFirstResponder];
+    }
+    else if (textField == [self telefoneTextField])
+    {
+        [[self emailTextField] becomeFirstResponder];
+    }
+    else if (textField == [self emailTextField])
+    {
+        [[self enderecoTextField] becomeFirstResponder];
+    }
+    else if (textField == [self enderecoTextField])
+    {
+        [[self siteTextField] becomeFirstResponder];
+    }
+    else if (textField == [self siteTextField])
+    {
+        [[self siteTextField] resignFirstResponder];
+    }
+    
+}
 
 @end
