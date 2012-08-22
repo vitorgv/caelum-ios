@@ -13,10 +13,14 @@
 
 @property(nonatomic, strong) IBOutlet UITextField *nomeTextField, *telefoneTextField, *emailTextField, *enderecoTextField, *siteTextField;
 
+@property(strong, nonatomic) NSMutableArray *contatos;
+
+
 - (IBAction)cadastrarContato:(id)sender;
 
 - (Contato *)obtemDadosDoFormulario:(id)sender;
 
 - (IBAction)proximoElemento:(UITextField *)textField;
+
 
 @end

@@ -10,9 +10,6 @@
 #import "Contato.h"
 
 @interface ContatoFormViewController ()
-{
-    UITextField *nomeTextField;
-}
 
 @end
 
@@ -48,24 +45,53 @@
 
 
 @synthesize nomeTextField, telefoneTextField, emailTextField, enderecoTextField, siteTextField;
+@synthesize contatos = _contatos;
 
+// metodo responsavel por cadastrar um contato quando o botao de cadastro for acionado.
 - (IBAction)cadastrarContato:(id)sender
 {
     Contato *contato = [self obtemDadosDoFormulario:sender];
     
-    NSMutableDictionary *contatos = [[NSMutableDictionary alloc] init];
-    [contatos setObject: [contato nome] forKey:@"nome"];
-    [contatos setObject: [contato telefone] forKey:@"telefone"];
-    [contatos setObject: [contato email] forKey:@"email"];
-    [contatos setObject: [contato endereco] forKey:@"endereco"];
-    [contatos setObject: [contato site] forKey:@"site"];
+    // Essa foi a primeira forma de guardar os dados, nem chega perto de ser a melhor
+    // solucao.
     
-    NSLog(@"dados: %@", contatos);
+//    NSMutableDictionary *contatos = [[NSMutableDictionary alloc] init];
+//    [contatos setObject: [contato nome] forKey:@"nome"];
+//    [contatos setObject: [contato telefone] forKey:@"telefone"];
+//    [contatos setObject: [contato email] forKey:@"email"];
+//    [contatos setObject: [contato endereco] forKey:@"endereco"];
+//    [contatos setObject: [contato site] forKey:@"site"];
     
-//    [siteTextField resignFirstResponder]; // solucao ruim para ocultar o teclado
-    [[self view] endEditing: YES]; // solucao menos ruim para ocultar o teclado, ainda nao esta bom
+    // acesso via metodo (melhor)
+    [[self contatos] addObject:contato];
+    
+    // acesso direto a propriedade
+    //[_contatos addObject:contato];
+    
+    // utilizando diretamento a propriedade
+    //NSMutableArray *contatos = [self contatos];
+    //[contatos addObject:contato];
+    
+    NSLog(@"dados: %@", [self contatos]);
+    
+    // solucao ruim para ocultar o teclado
+    // [siteTextField resignFirstResponder];
+    
+    // solucao menos ruim para ocultar o teclado, ainda nao esta bom
+    [[self view] endEditing: YES];
 }
 
+// sobrescrita do getter de contato. para ser possivel eh necessario que ele seja nanatomic, pois
+// ele exibira um warning para deixar claro que ele nao se responsabilizara pela propriedade.
+- (NSMutableArray *)contatos {
+    NSLog(@"Acessou a propriedade contato");
+    @synchronized(self){ // para garantir que a propriedade continue a ser atomica.
+        return _contatos;
+    }
+}
+
+// metodo responsavel por receber os dados do formulario e retornar um objeto Contato
+// totalmente preenchido.
 - (Contato *)obtemDadosDoFormulario:(id)sender {
     Contato *contato = [[Contato alloc] init];
     [contato setNome:[nomeTextField text]];
@@ -79,6 +105,8 @@
     return contato;
 }
 
+// metodo responsavel por verificar quando o proximo textfield devera ser acionado, ou receber
+// a responsabilidade de controle sobre o 
 - (IBAction)proximoElemento:(UITextField *)textField 
 {
     // Campos em ordem: nome, telefone, email, endereco, site.
@@ -104,6 +132,15 @@
         [[self siteTextField] resignFirstResponder];
     }
     
+}
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [[self contatos] setArray:[[NSMutableArray alloc] init]];
+    }
+    return self;
 }
 
 @end
