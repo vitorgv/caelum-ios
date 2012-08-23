@@ -25,13 +25,23 @@
                                                   action:@selector(exibeFormulario)];
                           
         [[self navigationItem] setRightBarButtonItem:botaoExibirFormulario];
+        
+        //
+        NSLog(@"self.contatos: %d", [[self contatos] count]);
+        NSLog(@"_contatos: %d", [_contatos count]);
+        
+        //_contatos = [self contatos];
+        _contatos = [[NSMutableArray alloc] initWithObjects:_contatos, nil];
+        
+        NSLog(@"self.contatos: %d", [[self contatos] count]);
+        NSLog(@"_contatos: %d", [_contatos count]);
     }
     return self;
 }
 
 - (void) exibeFormulario
 {
-    NSLog(@"Aqui vamos exibir o formulario");
+    NSLog(@"Contatos: %d", [[self contatos] count]);
     
     //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" 
     //                                                message:@"Message here" 

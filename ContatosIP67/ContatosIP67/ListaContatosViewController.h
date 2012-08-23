@@ -10,7 +10,7 @@
 
 @interface ListaContatosViewController : UIViewController
 
-@property(strong, nonatomic) NSMutableArray *contatos;
+@property(strong) NSMutableArray *contatos;
 
 - (void) exibeFormulario;
 

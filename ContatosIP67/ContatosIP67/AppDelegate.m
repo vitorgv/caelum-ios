@@ -22,18 +22,12 @@
     // Override point for customization after application launch.
     
     //
-    self.contatos = [[NSMutableArray alloc] init];
+    NSLog(@"contatos: %d", [_contatos count]);
+    _contatos = [[NSMutableArray alloc] init];
     
     ListaContatosViewController *lista = [[ListaContatosViewController alloc] init];
-    //[[self window] setRootViewController:listaContatosViewController];
-    lista.contatos = self.contatos;
-    
-    //
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:lista];
     [[self window] setRootViewController:nav];
-    
-    //
-    //_contatos = [[NSMutableArray alloc] init];
     
     self.window.backgroundColor = [UIColor blackColor];
     

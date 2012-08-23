@@ -12,17 +12,11 @@
 @interface ContatoFormViewController : UIViewController 
 
 @property(nonatomic, strong) IBOutlet UITextField *nomeTextField, *telefoneTextField, *emailTextField, *enderecoTextField, *siteTextField;
-
-@property(strong, nonatomic) NSMutableArray *contatos;
-
-//- (IBAction)cadastrarContato:(id)sender;
+@property(strong) NSMutableArray *contatos;
 
 - (Contato *)obtemDadosDoFormulario;
-
 - (IBAction)proximoElemento:(UITextField *)textField;
-
 - (void) ocultaFormulario;
-
 - (void) adicionaContato;
 
 @end

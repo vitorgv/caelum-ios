@@ -73,9 +73,9 @@
 		9073D22515E43FA60050D18F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9073D22615E43FA60050D18F /* UIKit.framework */,
-				9073D22815E43FA60050D18F /* Foundation.framework */,
 				9073D22A15E43FA60050D18F /* CoreGraphics.framework */,
+				9073D22815E43FA60050D18F /* Foundation.framework */,
+				9073D22615E43FA60050D18F /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -85,14 +85,14 @@
 			children = (
 				9073D23515E43FA60050D18F /* AppDelegate.h */,
 				9073D23615E43FA60050D18F /* AppDelegate.m */,
-				9073D22D15E43FA60050D18F /* Supporting Files */,
+				9073D25015E453F80050D18F /* Contato.h */,
+				9073D25115E453F80050D18F /* Contato.m */,
 				9073D24715E4407A0050D18F /* ContatoFormViewController.h */,
 				9073D24815E4407A0050D18F /* ContatoFormViewController.m */,
 				9073D24915E4407A0050D18F /* ContatoFormViewController.xib */,
-				9073D25015E453F80050D18F /* Contato.h */,
-				9073D25115E453F80050D18F /* Contato.m */,
 				9089D37B15E59E840093BB6A /* ListaContatosViewController.h */,
 				9089D37C15E59E840093BB6A /* ListaContatosViewController.m */,
+				9073D22D15E43FA60050D18F /* Supporting Files */,
 			);
 			path = ContatosIP67;
 			sourceTree = "<group>";
@@ -212,7 +212,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -230,7 +230,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -243,6 +243,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ContatosIP67/ContatosIP67-Prefix.pch";
 				INFOPLIST_FILE = "ContatosIP67/ContatosIP67-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -254,6 +255,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ContatosIP67/ContatosIP67-Prefix.pch";
 				INFOPLIST_FILE = "ContatosIP67/ContatosIP67-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
