@@ -22,10 +22,12 @@
     // Override point for customization after application launch.
     
     //
-    NSLog(@"contatos: %d", [_contatos count]);
-    _contatos = [[NSMutableArray alloc] init];
+    ListaContatosViewController *lista = [[ListaContatosViewController alloc] init]; 
     
-    ListaContatosViewController *lista = [[ListaContatosViewController alloc] init];
+    //
+    _contatos = [NSMutableArray array];
+    [lista setContatos:self.contatos];
+        
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:lista];
     [[self window] setRootViewController:nav];
     

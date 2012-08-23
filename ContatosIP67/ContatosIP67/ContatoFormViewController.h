@@ -12,6 +12,7 @@
 @interface ContatoFormViewController : UIViewController 
 
 @property(nonatomic, strong) IBOutlet UITextField *nomeTextField, *telefoneTextField, *emailTextField, *enderecoTextField, *siteTextField;
+
 @property(strong) NSMutableArray *contatos;
 
 - (Contato *)obtemDadosDoFormulario;

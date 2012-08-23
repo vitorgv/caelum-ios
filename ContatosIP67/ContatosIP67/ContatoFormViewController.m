@@ -10,7 +10,6 @@
 #import "Contato.h"
 
 @interface ContatoFormViewController ()
-
 @end
 
 @implementation ContatoFormViewController
@@ -36,17 +35,6 @@
         
         [[self navigationItem] setLeftBarButtonItem:botaoCancelar];
         [[self navigationItem] setRightBarButtonItem:botaoConfirmar];
-        
-        NSLog(@"self.contatos: %d", [[self contatos] count]);
-        NSLog(@"_contatos: %d", [_contatos count]);
-        
-        //_contatos = [self contatos];
-        //_contatos = [[NSMutableArray alloc] initWithObjects: nil];
-        _contatos = [[NSMutableArray alloc] initWithObjects:_contatos, nil];
-
-        NSLog(@"self.contatos: %d", [[self contatos] count]);
-        NSLog(@"_contatos: %d", [_contatos count]);
-
     }
     return self;
 }
@@ -83,8 +71,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-// metodo responsavel por receber os dados do formulario e retornar um objeto Contato
-// totalmente preenchido.
+// metodo responsavel por receber os dados do formulario e retornar um objeto Contato totalmente preenchido.
 - (Contato *)obtemDadosDoFormulario {
     Contato *contatoAux = [[Contato alloc] init];
     [contatoAux setNome:[nomeTextField text]];
@@ -130,11 +117,11 @@
 - (void) adicionaContato
 {
     Contato *contato = [self obtemDadosDoFormulario];
-    NSLog(@"Contato dentro de adicionaContato: %@", contato);
+    NSLog(@"[adicionaContato]: %@", contato);
     
-    [_contatos addObject:contato];
-    _contatos = [[NSMutableArray alloc] initWithObjects:_contatos, nil];
-    NSLog(@"Contatos cadastrados: %d", [_contatos count]);
+    //
+    [[self contatos] addObject:contato];
+    NSLog(@"Total contatos: %d", [_contatos count]);
     
     [self dismissModalViewControllerAnimated:YES];
 }

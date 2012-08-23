@@ -24,17 +24,7 @@
                                                   target:self 
                                                   action:@selector(exibeFormulario)];
                           
-        [[self navigationItem] setRightBarButtonItem:botaoExibirFormulario];
-        
-        //
-        NSLog(@"self.contatos: %d", [[self contatos] count]);
-        NSLog(@"_contatos: %d", [_contatos count]);
-        
-        //_contatos = [self contatos];
-        _contatos = [[NSMutableArray alloc] initWithObjects:_contatos, nil];
-        
-        NSLog(@"self.contatos: %d", [[self contatos] count]);
-        NSLog(@"_contatos: %d", [_contatos count]);
+        [[self navigationItem] setRightBarButtonItem:botaoExibirFormulario];      
     }
     return self;
 }
@@ -51,6 +41,9 @@
     //[alert show];
     
     ContatoFormViewController *formulario = [[ContatoFormViewController alloc] init];
+    
+    //
+    [formulario setContatos:self.contatos];
     
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:formulario];
     
