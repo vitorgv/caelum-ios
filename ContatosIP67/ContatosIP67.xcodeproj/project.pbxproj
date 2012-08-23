@@ -16,6 +16,7 @@
 		9073D24A15E4407A0050D18F /* ContatoFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9073D24815E4407A0050D18F /* ContatoFormViewController.m */; };
 		9073D24B15E4407A0050D18F /* ContatoFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9073D24915E4407A0050D18F /* ContatoFormViewController.xib */; };
 		9073D25215E453F90050D18F /* Contato.m in Sources */ = {isa = PBXBuildFile; fileRef = 9073D25115E453F80050D18F /* Contato.m */; };
+		9089D37D15E59E840093BB6A /* ListaContatosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089D37C15E59E840093BB6A /* ListaContatosViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		9073D24915E4407A0050D18F /* ContatoFormViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContatoFormViewController.xib; sourceTree = "<group>"; };
 		9073D25015E453F80050D18F /* Contato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contato.h; sourceTree = "<group>"; };
 		9073D25115E453F80050D18F /* Contato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contato.m; sourceTree = "<group>"; };
+		9089D37B15E59E840093BB6A /* ListaContatosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaContatosViewController.h; sourceTree = "<group>"; };
+		9089D37C15E59E840093BB6A /* ListaContatosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaContatosViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 				9073D24915E4407A0050D18F /* ContatoFormViewController.xib */,
 				9073D25015E453F80050D18F /* Contato.h */,
 				9073D25115E453F80050D18F /* Contato.m */,
+				9089D37B15E59E840093BB6A /* ListaContatosViewController.h */,
+				9089D37C15E59E840093BB6A /* ListaContatosViewController.m */,
 			);
 			path = ContatosIP67;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 				9073D23715E43FA60050D18F /* AppDelegate.m in Sources */,
 				9073D24A15E4407A0050D18F /* ContatoFormViewController.m in Sources */,
 				9073D25215E453F90050D18F /* Contato.m in Sources */,
+				9089D37D15E59E840093BB6A /* ListaContatosViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +278,7 @@
 				9073D23C15E43FA60050D18F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

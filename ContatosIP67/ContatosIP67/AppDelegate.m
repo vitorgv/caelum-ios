@@ -8,19 +8,33 @@
 
 #import "AppDelegate.h"
 #import "ContatoFormViewController.h"
+#import "ListaContatosViewController.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize contatos = _contatos;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Override point for customization after application launch.
-    ContatoFormViewController *contatoFormViewController = [[ContatoFormViewController alloc] init];
-    self.window.rootViewController = contatoFormViewController;
-        
+    
+    //
+    self.contatos = [[NSMutableArray alloc] init];
+    
+    ListaContatosViewController *lista = [[ListaContatosViewController alloc] init];
+    //[[self window] setRootViewController:listaContatosViewController];
+    lista.contatos = self.contatos;
+    
+    //
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:lista];
+    [[self window] setRootViewController:nav];
+    
+    //
+    //_contatos = [[NSMutableArray alloc] init];
+    
     self.window.backgroundColor = [UIColor blackColor];
     
     [self.window makeKeyAndVisible];

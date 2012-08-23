@@ -15,12 +15,14 @@
 
 @property(strong, nonatomic) NSMutableArray *contatos;
 
+//- (IBAction)cadastrarContato:(id)sender;
 
-- (IBAction)cadastrarContato:(id)sender;
-
-- (Contato *)obtemDadosDoFormulario:(id)sender;
+- (Contato *)obtemDadosDoFormulario;
 
 - (IBAction)proximoElemento:(UITextField *)textField;
 
+- (void) ocultaFormulario;
+
+- (void) adicionaContato;
 
 @end
