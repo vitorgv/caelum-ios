@@ -23,16 +23,16 @@
     
     //
     ListaContatosViewController *lista = [[ListaContatosViewController alloc] init]; 
-    
-    //
-    _contatos = [NSMutableArray array];
-    [lista setContatos:self.contatos];
-        
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:lista];
     [[self window] setRootViewController:nav];
     
-    self.window.backgroundColor = [UIColor blackColor];
+    //
+    _contatos = [NSMutableArray array];
     
+    //
+    [lista setContatos:[self contatos]];
+    
+    self.window.backgroundColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
     
     return YES;

@@ -81,7 +81,6 @@
     [contatoAux setSite:[siteTextField text]];
     
     NSLog(@"contato: %@", contatoAux);
-    
     return contatoAux;
 }
 
@@ -116,13 +115,14 @@
 
 - (void) adicionaContato
 {
+    //
     Contato *contato = [self obtemDadosDoFormulario];
-    NSLog(@"[adicionaContato]: %@", contato);
-    
+        
     //
     [[self contatos] addObject:contato];
     NSLog(@"Total contatos: %d", [_contatos count]);
     
+    //
     [self dismissModalViewControllerAnimated:YES];
 }
 

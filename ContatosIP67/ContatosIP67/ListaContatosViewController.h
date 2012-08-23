@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ListaContatosViewController : UIViewController
+@interface ListaContatosViewController : UITableViewController
 
 @property(strong) NSMutableArray *contatos;
 
 - (void) exibeFormulario;
+
+//- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView;
+//- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+//- (void) viewWillAppear:(BOOL)animated;
 
 @end
