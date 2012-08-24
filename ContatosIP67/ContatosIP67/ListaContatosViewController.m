@@ -24,11 +24,29 @@
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                   target:self 
                                                   action:@selector(exibeFormulario)];
-                          
-        [[self navigationItem] setRightBarButtonItem:botaoExibirFormulario];      
+        [[self navigationItem] setRightBarButtonItem:botaoExibirFormulario];
+        
+        //
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
+        
     }
     return self;
 }
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        //
+        [self.contatos removeObjectAtIndex:indexPath.row];
+        
+        //
+        NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
+        [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
