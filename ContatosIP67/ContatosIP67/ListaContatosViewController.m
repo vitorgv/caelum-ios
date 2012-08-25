@@ -76,6 +76,12 @@
     [self.navigationController pushViewController:form animated:YES];
 }
 
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    Contato *contato = [self.contatos objectAtIndex:sourceIndexPath.row];
+    [self.contatos removeObjectAtIndex:sourceIndexPath.row];
+    [self.contatos insertObject:contato atIndex:destinationIndexPath.row];
+}
+
 - (void) viewWillAppear:(BOOL)animated {
     [self.tableView reloadData];
 }
@@ -90,9 +96,6 @@
 }
 
 - (void) contatoAtualizado:(id)contato {
-    NSInteger indice = [self.contatos indexOfObject:contato];
-    [self.contatos removeObjectAtIndex:indice];
-    [self.contatos insertObject:contato atIndex:indice];
     NSLog(@"atualizado: %d", [self.contatos indexOfObject:contato]);    
 }
 
