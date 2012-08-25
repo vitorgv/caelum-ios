@@ -16,27 +16,23 @@
 @synthesize endereco = _endereco;
 @synthesize site = _site;
 
-- (NSString*)description
-{
+- (NSString*) description {
     NSString *retorno = [NSString stringWithFormat:@"Nome: %@ \n Email: %@",_nome, _email]; 
     return retorno;
 }
 
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeObject:_nome forKey:@"nome"];
-    [aCoder encodeObject:_telefone forKey:@"telefone"];
-    [aCoder encodeObject:_email forKey:@"email"];
-    [aCoder encodeObject:_endereco forKey:@"endereco"];
-    [aCoder encodeObject:_site forKey:@"site"];
+- (void) encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.nome forKey:@"nome"];
+    [aCoder encodeObject:self.telefone forKey:@"telefone"];
+    [aCoder encodeObject:self.email forKey:@"email"];
+    [aCoder encodeObject:self.endereco forKey:@"endereco"];
+    [aCoder encodeObject:self.site forKey:@"site"];
 }
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
+- (id) initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
 
-    if (self)
-    {
+    if (self) {
         [self setNome:[aDecoder decodeObjectForKey:@"nome"]];
         [self setTelefone:[aDecoder decodeObjectForKey:@"telefone"]];
         [self setEmail:[aDecoder decodeObjectForKey:@"email"]];

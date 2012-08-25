@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Contato.h"
+#import "ListaContatosProtocol.h"
 
 @interface ContatoFormViewController : UIViewController 
 
@@ -15,9 +16,18 @@
 
 @property(strong) NSMutableArray *contatos;
 
-- (Contato *)obtemDadosDoFormulario;
+@property Contato *contato;
+
+@property(weak) id<ListaContatosProtocol> delegate;
+
+- (Contato *)pegaDadosDoFormulario;
+
 - (IBAction)proximoElemento:(UITextField *)textField;
-- (void) ocultaFormulario;
-- (void) adicionaContato;
+
+- (void)ocultaFormulario;
+
+- (void)criaContato;
+
+- (id)initWithContato:(Contato *)contato;
 
 @end

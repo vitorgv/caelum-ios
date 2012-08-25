@@ -38,6 +38,8 @@
 		9073D25115E453F80050D18F /* Contato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contato.m; sourceTree = "<group>"; };
 		9089D37B15E59E840093BB6A /* ListaContatosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListaContatosViewController.h; sourceTree = "<group>"; };
 		9089D37C15E59E840093BB6A /* ListaContatosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaContatosViewController.m; sourceTree = "<group>"; };
+		90BED1E515E849F900108C71 /* ContatoProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContatoProtocol.h; sourceTree = "<group>"; };
+		90BED1E615E84B0600108C71 /* ListaContatosProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListaContatosProtocol.h; sourceTree = "<group>"; };
 		90F35DC515E6F16500BC8049 /* Contatos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Contatos.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,9 +94,11 @@
 				9073D24715E4407A0050D18F /* ContatoFormViewController.h */,
 				9073D24815E4407A0050D18F /* ContatoFormViewController.m */,
 				9073D24915E4407A0050D18F /* ContatoFormViewController.xib */,
+				90BED1E515E849F900108C71 /* ContatoProtocol.h */,
+				90F35DC515E6F16500BC8049 /* Contatos.plist */,
+				90BED1E615E84B0600108C71 /* ListaContatosProtocol.h */,
 				9089D37B15E59E840093BB6A /* ListaContatosViewController.h */,
 				9089D37C15E59E840093BB6A /* ListaContatosViewController.m */,
-				90F35DC515E6F16500BC8049 /* Contatos.plist */,
 				9073D22D15E43FA60050D18F /* Supporting Files */,
 			);
 			path = ContatosIP67;

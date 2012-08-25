@@ -7,15 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ListaContatosProtocol.h"
 
-@interface ListaContatosViewController : UITableViewController
+@interface ListaContatosViewController : UITableViewController <ListaContatosProtocol>
 
 @property(strong) NSMutableArray *contatos;
 
 - (void) exibeFormulario;
-
-//- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView;
-//- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
-//- (void) viewWillAppear:(BOOL)animated;
 
 @end
