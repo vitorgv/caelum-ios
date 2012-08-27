@@ -200,8 +200,9 @@
 
 - (void) enviarTwitter {
     NSLog(@"Twitter: %@", contatoSelecionado.twitter);
-    //NSSt/ring *url = contatoSelecionado.twitter;
-    //[self abrirAplicativoComURL:url];
+    TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
+    [twitter setInitialText:contatoSelecionado.twitter];
+    [self presentModalViewController:twitter animated:YES];
 }
 
 @end
