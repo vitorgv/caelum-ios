@@ -11,7 +11,7 @@
 
 @implementation ContatoFormViewController
 
-@synthesize nomeTextField, telefoneTextField, emailTextField, enderecoTextField, siteTextField;
+@synthesize nomeTextField, telefoneTextField, emailTextField, enderecoTextField, siteTextField, twitterTextField;
 @synthesize contatos = _contatos;
 @synthesize contato;
 @synthesize delegate;
@@ -76,6 +76,7 @@
         emailTextField.text = contato.email;
         enderecoTextField.text = contato.endereco;
         siteTextField.text = contato.site;
+        twitterTextField.text = contato.twitter;
     }
 }
 
@@ -100,6 +101,7 @@
     [contato setEmail:[emailTextField text]];
     [contato setEndereco:[enderecoTextField text]];
     [contato setSite:[siteTextField text]];
+    [contato setTwitter:[twitterTextField text]];
     
     return contato;
 }
@@ -107,16 +109,18 @@
 // metodo responsavel por verificar quando o proximo textfield devera ser acionado, ou receber
 // a responsabilidade de controle sobre o keyboard.
 - (IBAction) proximoElemento:(UITextField *)textField {
-    // Campos em ordem na tela: nome, telefone, email, endereco, site.
+    // Campos em ordem na tela: nome, telefone, email, twitter, endereco, site.
     
     if (textField == [self nomeTextField]) {
         [[self telefoneTextField] becomeFirstResponder];
     } else if (textField == [self telefoneTextField]) {
         [[self emailTextField] becomeFirstResponder];
     } else if (textField == [self emailTextField]) {
+        [[self twitterTextField] becomeFirstResponder];
+    } else if (textField == [self twitterTextField]) {
         [[self enderecoTextField] becomeFirstResponder];
     } else if (textField == [self enderecoTextField]) {
-        [[self siteTextField] becomeFirstResponder];
+        [[self siteTextField] resignFirstResponder];
     } else if (textField == [self siteTextField]) {
         [[self siteTextField] resignFirstResponder];
     }

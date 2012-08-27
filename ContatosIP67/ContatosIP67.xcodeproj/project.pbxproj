@@ -17,7 +17,8 @@
 		9073D24B15E4407A0050D18F /* ContatoFormViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9073D24915E4407A0050D18F /* ContatoFormViewController.xib */; };
 		9073D25215E453F90050D18F /* Contato.m in Sources */ = {isa = PBXBuildFile; fileRef = 9073D25115E453F80050D18F /* Contato.m */; };
 		9089D37D15E59E840093BB6A /* ListaContatosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089D37C15E59E840093BB6A /* ListaContatosViewController.m */; };
-		90F35DC615E6F16500BC8049 /* Contatos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90F35DC515E6F16500BC8049 /* Contatos.plist */; };
+		90E40E5915EC251B006C3F75 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E40E5815EC251B006C3F75 /* MessageUI.framework */; };
+		90E40E5C15EC3A38006C3F75 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E40E5B15EC3A38006C3F75 /* Twitter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +41,8 @@
 		9089D37C15E59E840093BB6A /* ListaContatosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListaContatosViewController.m; sourceTree = "<group>"; };
 		90BED1E515E849F900108C71 /* ContatoProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContatoProtocol.h; sourceTree = "<group>"; };
 		90BED1E615E84B0600108C71 /* ListaContatosProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListaContatosProtocol.h; sourceTree = "<group>"; };
-		90F35DC515E6F16500BC8049 /* Contatos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Contatos.plist; sourceTree = "<group>"; };
+		90E40E5815EC251B006C3F75 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		90E40E5B15EC3A38006C3F75 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90E40E5C15EC3A38006C3F75 /* Twitter.framework in Frameworks */,
+				90E40E5915EC251B006C3F75 /* MessageUI.framework in Frameworks */,
 				9073D22715E43FA60050D18F /* UIKit.framework in Frameworks */,
 				9073D22915E43FA60050D18F /* Foundation.framework in Frameworks */,
 				9073D22B15E43FA60050D18F /* CoreGraphics.framework in Frameworks */,
@@ -77,6 +81,8 @@
 		9073D22515E43FA60050D18F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90E40E5B15EC3A38006C3F75 /* Twitter.framework */,
+				90E40E5815EC251B006C3F75 /* MessageUI.framework */,
 				9073D22A15E43FA60050D18F /* CoreGraphics.framework */,
 				9073D22815E43FA60050D18F /* Foundation.framework */,
 				9073D22615E43FA60050D18F /* UIKit.framework */,
@@ -95,7 +101,6 @@
 				9073D24815E4407A0050D18F /* ContatoFormViewController.m */,
 				9073D24915E4407A0050D18F /* ContatoFormViewController.xib */,
 				90BED1E515E849F900108C71 /* ContatoProtocol.h */,
-				90F35DC515E6F16500BC8049 /* Contatos.plist */,
 				90BED1E615E84B0600108C71 /* ListaContatosProtocol.h */,
 				9089D37B15E59E840093BB6A /* ListaContatosViewController.h */,
 				9089D37C15E59E840093BB6A /* ListaContatosViewController.m */,
@@ -167,7 +172,6 @@
 			files = (
 				9073D23115E43FA60050D18F /* InfoPlist.strings in Resources */,
 				9073D24B15E4407A0050D18F /* ContatoFormViewController.xib in Resources */,
-				90F35DC615E6F16500BC8049 /* Contatos.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
