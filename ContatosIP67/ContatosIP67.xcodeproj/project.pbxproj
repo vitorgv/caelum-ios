@@ -146,7 +146,7 @@
 		9073D21915E43FA60050D18F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = 9073D21C15E43FA60050D18F /* Build configuration list for PBXProject "ContatosIP67" */;
 			compatibilityVersion = "Xcode 3.2";

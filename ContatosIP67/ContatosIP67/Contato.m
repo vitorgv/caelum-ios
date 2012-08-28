@@ -10,16 +10,10 @@
 
 @implementation Contato
 
-@synthesize nome = _nome;
-@synthesize telefone = _telefone;
-@synthesize email = _email;
-@synthesize endereco = _endereco;
-@synthesize site = _site;
-@synthesize twitter = _twitter;
+@synthesize nome, telefone, email, endereco, site, twitter, foto;
 
 - (NSString*) description {
-    NSString *retorno = [NSString stringWithFormat:@"Nome: %@ \n Email: %@",_nome, _email]; 
-    return retorno;
+    return [NSString stringWithFormat:@"Nome: %@ \n Email: %@", self.nome, self.email];
 }
 
 - (void) encodeWithCoder:(NSCoder *)aCoder {
@@ -29,6 +23,7 @@
     [aCoder encodeObject:self.endereco forKey:@"endereco"];
     [aCoder encodeObject:self.site forKey:@"site"];
     [aCoder encodeObject:self.twitter forKey:@"twitter"];
+    [aCoder encodeObject:self.foto forKey:@"foto"];
 }
 
 - (id) initWithCoder:(NSCoder *)aDecoder {
@@ -41,6 +36,7 @@
         [self setEndereco:[aDecoder decodeObjectForKey:@"endereco"]];
         [self setSite:[aDecoder decodeObjectForKey:@"site"]];
         [self setTwitter:[aDecoder decodeObjectForKey:@"twitter"]];
+        [self setFoto:[aDecoder decodeObjectForKey:@"foto"]];
     }
     
     return self;

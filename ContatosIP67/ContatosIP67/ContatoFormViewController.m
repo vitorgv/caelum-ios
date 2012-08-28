@@ -78,7 +78,13 @@
         enderecoTextField.text = contato.endereco;
         siteTextField.text = contato.site;
         twitterTextField.text = contato.twitter;
+        
+        if (contato.foto) {
+            [botaoFoto setImage:contato.foto forState:UIControlStateNormal];
+        }
+
     }
+    
 }
 
 - (void)viewDidUnload {
@@ -103,6 +109,10 @@
     [contato setEndereco:[enderecoTextField text]];
     [contato setSite:[siteTextField text]];
     [contato setTwitter:[twitterTextField text]];
+    
+    if (botaoFoto.imageView.image) {
+        contato.foto = botaoFoto.imageView.image;
+    }
     
     return contato;
 }
@@ -147,17 +157,19 @@
 - (IBAction) selecionaFoto:(id)sender {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         // camera disponivel
+        // UIImagePickerControllerSourceTypeCamera
     } else {
         // usar a biblioteca
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        picker.allowsEditing = YES;
+        picker.delegate = self;
+        [self presentModalViewController:picker animated:YES];
     }
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary; // UIImagePickerControllerSourceTypeCamera
-    picker.allowsEditing = YES;
-    picker.delegate = self;
-    [self presentModalViewController:picker animated:YES];
+    
 }
 
-- (void) imagepickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *imagemSelecionada = [info valueForKey:UIImagePickerControllerEditedImage];
     [botaoFoto setImage:imagemSelecionada forState:UIControlStateNormal];

@@ -12,26 +12,26 @@
 
 @interface ContatoFormViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property(nonatomic, strong) IBOutlet UITextField *nomeTextField, *telefoneTextField, *emailTextField, *enderecoTextField, *siteTextField, *twitterTextField;
+@property (nonatomic, strong) IBOutlet UITextField *nomeTextField, *telefoneTextField, *emailTextField, *enderecoTextField, *siteTextField, *twitterTextField;
 
-@property(strong) NSMutableArray *contatos;
+@property (strong) NSMutableArray *contatos;
 
 @property Contato *contato;
 
-@property(weak) id<ListaContatosProtocol> delegate;
+@property (weak) id<ListaContatosProtocol> delegate;
 
-@property(nonatomic, strong) IBOutlet UIButton *botaoFoto;
+@property (strong) IBOutlet UIButton *botaoFoto;
 
-- (Contato *)pegaDadosDoFormulario;
+- (Contato *) pegaDadosDoFormulario;
 
-- (IBAction)proximoElemento:(UITextField *)textField;
+- (IBAction) proximoElemento:(UITextField *)textField;
 
-- (void)ocultaFormulario;
+- (void) ocultaFormulario;
 
-- (void)criaContato;
+- (void) criaContato;
 
-- (id)initWithContato:(Contato *)contato;
+- (id) initWithContato:(Contato *)contato;
 
-- (IBAction)selecionaFoto:(id)sender;
+- (IBAction) selecionaFoto:(id)sender;
 
 @end
