@@ -199,8 +199,7 @@
 }
 
 - (void) enviarTwitter {
-    NSLog(@"Twitter: %@", contatoSelecionado.twitter);
-    TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
+    TWTweetComposeViewController *twitter = [TWTweetComposeViewController new];
     [twitter setInitialText:contatoSelecionado.twitter];
     [self presentModalViewController:twitter animated:YES];
 }
