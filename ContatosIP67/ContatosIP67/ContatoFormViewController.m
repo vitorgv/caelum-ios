@@ -156,8 +156,14 @@
 
 - (IBAction) selecionaFoto:(id)sender {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        // camera disponivel
-        // UIImagePickerControllerSourceTypeCamera
+        // usar a camera
+        UIActionSheet *sheet = [[UIActionSheet alloc]
+                                initWithTitle:@"Escolha a foto do contato"
+                                delegate:self
+                                cancelButtonTitle:@"Cancelar"
+                                destructiveButtonTitle:nil
+                                otherButtonTitles:@"Tira foto", @"Escolher Biblioteca", nil];
+        [sheet showInView:[self view]];
     } else {
         // usar a biblioteca
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -174,6 +180,26 @@
     UIImage *imagemSelecionada = [info valueForKey:UIImagePickerControllerEditedImage];
     [botaoFoto setImage:imagemSelecionada forState:UIControlStateNormal];
     [picker dismissModalViewControllerAnimated:YES];
+}
+
+- (void) actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    
+    switch (buttonIndex) {
+        case 0:
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            break;
+
+        case 1:
+            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            
+        default:
+            return;
+    }
+    
+    [self presentModalViewController:picker animated:YES];
 }
 
 @end

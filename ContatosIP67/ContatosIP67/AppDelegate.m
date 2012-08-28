@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ContatoFormViewController.h"
 #import "ListaContatosViewController.h"
+#import "ContatosNoMapaViewController.h"
 
 @implementation AppDelegate
 
@@ -36,16 +37,27 @@
 
     // Inicializa a tela de listagem de contatos e passa a referencia para o componente
     // UINavigationController, e a referencia do ultimo para o self window.
-    ListaContatosViewController *lista = [[ListaContatosViewController alloc] init]; 
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:lista];
-    [[self window] setRootViewController:nav];
+    ListaContatosViewController *lista = [[ListaContatosViewController alloc] init];
     
     // Passa a referencia do array dos contatos para o ListaContatosViewController
     [lista setContatos:[self contatos]];
     
+    //
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:lista];
+    
+    //
+    ContatosNoMapaViewController *contatosMapa = [[ContatosNoMapaViewController alloc] init];
+    
+    //
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = [NSArray arrayWithObjects:nav, contatosMapa, nil];
+
+    //
+    [[self window] setRootViewController:tabBarController];
+    
+    //
     self.window.backgroundColor = [UIColor blackColor];
     [self.window makeKeyAndVisible];
-    
     return YES;
 }
 

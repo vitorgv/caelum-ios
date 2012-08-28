@@ -10,7 +10,7 @@
 #import "Contato.h"
 #import "ListaContatosProtocol.h"
 
-@interface ContatoFormViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface ContatoFormViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField *nomeTextField, *telefoneTextField, *emailTextField, *enderecoTextField, *siteTextField, *twitterTextField;
 
