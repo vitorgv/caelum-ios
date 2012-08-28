@@ -10,7 +10,7 @@
 #import "Contato.h"
 #import "ListaContatosProtocol.h"
 
-@interface ContatoFormViewController : UIViewController 
+@interface ContatoFormViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property(nonatomic, strong) IBOutlet UITextField *nomeTextField, *telefoneTextField, *emailTextField, *enderecoTextField, *siteTextField, *twitterTextField;
 
@@ -19,6 +19,8 @@
 @property Contato *contato;
 
 @property(weak) id<ListaContatosProtocol> delegate;
+
+@property(nonatomic, strong) IBOutlet UIButton *botaoFoto;
 
 - (Contato *)pegaDadosDoFormulario;
 
@@ -29,5 +31,7 @@
 - (void)criaContato;
 
 - (id)initWithContato:(Contato *)contato;
+
+- (IBAction)selecionaFoto:(id)sender;
 
 @end

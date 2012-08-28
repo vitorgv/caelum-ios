@@ -15,6 +15,7 @@
 @synthesize contatos = _contatos;
 @synthesize contato;
 @synthesize delegate;
+@synthesize botaoFoto;
 
 // sobreescrita do metodo init para quando a tela for criada, tambem iniciara o array.
 - (id) init {
@@ -141,6 +142,26 @@
         [self.delegate contatoAtualizado:contatoAtualizado];   
     }
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction) selecionaFoto:(id)sender {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        // camera disponivel
+    } else {
+        // usar a biblioteca
+    }
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary; // UIImagePickerControllerSourceTypeCamera
+    picker.allowsEditing = YES;
+    picker.delegate = self;
+    [self presentModalViewController:picker animated:YES];
+}
+
+- (void) imagepickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *imagemSelecionada = [info valueForKey:UIImagePickerControllerEditedImage];
+    [botaoFoto setImage:imagemSelecionada forState:UIControlStateNormal];
+    [picker dismissModalViewControllerAnimated:YES];
 }
 
 @end
