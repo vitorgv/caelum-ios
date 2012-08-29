@@ -1,30 +1,40 @@
 //
-//  ContatosNoMapaViewController.m
+//  SiteDoContatoViewController.m
 //  ContatosIP67
 //
 //  Created by ios2971 on 28/08/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "ContatosNoMapaViewController.h"
-#import "MapKit/MKUserTrackingBarButtonItem.h"
+#import "SiteDoContatoViewController.h"
+#import "Contato.h"
 
-@implementation ContatosNoMapaViewController
+@interface SiteDoContatoViewController ()
+@end
 
-@synthesize mapa;
+
+@implementation SiteDoContatoViewController
+
+@synthesize web;
+@synthesize contato;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-
     if (self) {
-        //
-        UIImage *imagemTabItem = [UIImage imageNamed:@"mapa-contatos.png"];
-        UITabBarItem *tabItem = [[UITabBarItem alloc] initWithTitle:@"Mapa" image:imagemTabItem tag:0];
-        [self setTabBarItem:tabItem];
-        [[self navigationItem] setTitle:@"Localizacao"];
+        // Custom initialization
     }
+    return self;
+}
 
+- (id)initWithContato:(Contato *)contatoSelecionado
+{
+    self = [super init];
+    
+    if (self) {
+        contato = contatoSelecionado;
+    }
+    
     return self;
 }
 
@@ -33,13 +43,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    MKUserTrackingBarButtonItem *botaoLocalizacao = [[MKUserTrackingBarButtonItem alloc] initWithMapView:self.mapa];
-    [[self navigationItem] setLeftBarButtonItem:botaoLocalizacao];
-    
+    NSURL *url = [NSURL URLWithString:contato.site];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [web loadRequest:request];
 }
 
 - (void)viewDidUnload
 {
+    [self setWeb:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -49,5 +60,6 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
 
 @end

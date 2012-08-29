@@ -10,6 +10,7 @@
 #import "ContatoFormViewController.h"
 #import "Contato.h"
 #import "ListaContatosProtocol.h"
+#import "SiteDoContatoViewController.h"
 
 @implementation ListaContatosViewController
 
@@ -18,15 +19,26 @@
 
 - (id) init {
     self = [super init];
+    
     if (self) {
+        //
+        UIImage *imagemTabItem = [UIImage imageNamed:@"lista-contatos.png"];
+        UITabBarItem *tabItem = [[UITabBarItem alloc] initWithTitle:@"Contatos" image:imagemTabItem tag:0];
+        //        UITabBarItem *tabItem = [[UITabBarItem alloc] 
+        //                                 initWithTabBarSystemItem:UITabBarSystemItemDownloads tag:0];
+        [self setTabBarItem:tabItem];
+        
+        //
         [[self navigationItem] setTitle:@"Contatos"];
         
+        //
         UIBarButtonItem *botaoExibirFormulario = [[UIBarButtonItem alloc]
                                                   initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                   target:self 
                                                   action:@selector(exibeFormulario)];
         [[self navigationItem] setRightBarButtonItem:botaoExibirFormulario];
         
+        //
         self.navigationItem.leftBarButtonItem = self.editButtonItem;
     }
     return self;
@@ -56,7 +68,7 @@
     
     if(!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                reuseIdentifier:cellIdentifier];
+                                      reuseIdentifier:cellIdentifier];
     }
     
     Contato *contato = [self.contatos objectAtIndex:indexPath.row];
@@ -68,11 +80,9 @@
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Contato *contato = [self.contatos objectAtIndex:indexPath.row];
-
     ContatoFormViewController *form = [[ContatoFormViewController alloc] initWithContato:contato];
     form.contatos = self.contatos;
     form.delegate = self;
-
     [self.navigationController pushViewController:form animated:YES];
 }
 
@@ -141,11 +151,11 @@
         case 2:
             [self abrirSite];
             break;
-        
+            
         case 3:
             [self mostrarMapa];
             break;
-        
+            
         case 4:
             [self enviarTwitter];
             
@@ -171,8 +181,12 @@
 }
 
 - (void) abrirSite {
-    NSString *url = contatoSelecionado.site;
-    [self abrirAplicativoComURL:url];
+    //    NSString *url = contatoSelecionado.site;
+    //    [self abrirAplicativoComURL:url];
+    
+    SiteDoContatoViewController *siteView = [SiteDoContatoViewController new];
+    [siteView setContato:contatoSelecionado];
+    [self.navigationController pushViewController:siteView animated:YES];
 }
 
 - (void) mostrarMapa {

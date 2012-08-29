@@ -25,12 +25,12 @@
         [[self navigationItem] setTitle:@"Cadastro"];
         
         UIBarButtonItem *botaoCancelar = [[UIBarButtonItem alloc] initWithTitle:@"Cancelar"
-                                                                        style:UIBarButtonItemStylePlain
-                                                                       target:self action:@selector(ocultaFormulario)];
-                                    
-        UIBarButtonItem *botaoConfirmar = [[UIBarButtonItem alloc] initWithTitle:@"Confirmar"
                                                                           style:UIBarButtonItemStylePlain
-                                                                         target:self action:@selector(criaContato)];
+                                                                         target:self action:@selector(ocultaFormulario)];
+        
+        UIBarButtonItem *botaoConfirmar = [[UIBarButtonItem alloc] initWithTitle:@"Confirmar"
+                                                                           style:UIBarButtonItemStylePlain
+                                                                          target:self action:@selector(criaContato)];
         
         [[self navigationItem] setLeftBarButtonItem:botaoCancelar];
         [[self navigationItem] setRightBarButtonItem:botaoConfirmar];
@@ -82,7 +82,7 @@
         if (contato.foto) {
             [botaoFoto setImage:contato.foto forState:UIControlStateNormal];
         }
-
+        
     }
     
 }
@@ -191,7 +191,7 @@
         case 0:
             picker.sourceType = UIImagePickerControllerSourceTypeCamera;
             break;
-
+            
         case 1:
             picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             
