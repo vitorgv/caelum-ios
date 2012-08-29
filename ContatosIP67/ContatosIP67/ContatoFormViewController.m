@@ -16,6 +16,8 @@
 @synthesize contato;
 @synthesize delegate;
 @synthesize botaoFoto;
+@synthesize campoAtual;
+@synthesize scroll;
 
 // sobreescrita do metodo init para quando a tela for criada, tambem iniciara o array.
 - (id) init {
@@ -71,6 +73,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    // criando o observador para receber mensagens
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tecladoApareceu:) name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tecladoSumiu:) name:UIKeyboardDidHideNotification object:nil];
+    
     if (self.contato) {
         nomeTextField.text = contato.nome;
         telefoneTextField.text = contato.telefone;
@@ -91,6 +98,11 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -200,6 +212,14 @@
     }
     
     [self presentModalViewController:picker animated:YES];
+}
+
+- (void) tecladoSumiu:(NSNotification *) notification {
+    NSLog(@"Teclado Sumiu");
+}
+
+- (void) tecladoApareceu:(NSNotification *) notification {
+    NSLog(@"Teclado Apareceu");    
 }
 
 @end
