@@ -13,7 +13,6 @@
 		90BF2C8115F011D70056D45D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90BF2C7F15F011D70056D45D /* InfoPlist.strings */; };
 		90BF2C8315F011D70056D45D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BF2C8215F011D70056D45D /* main.m */; };
 		90BF2C8715F011D70056D45D /* VVAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BF2C8615F011D70056D45D /* VVAppDelegate.m */; };
-		90BF2C8F15F012170056D45D /* VVUltimosTweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BF2C8E15F012170056D45D /* VVUltimosTweetsViewController.m */; };
 		90BF2C9215F016A30056D45D /* VVTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 90BF2C9115F016A30056D45D /* VVTweet.m */; };
 /* End PBXBuildFile section */
 
@@ -28,10 +27,10 @@
 		90BF2C8415F011D70056D45D /* Twitter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Twitter-Prefix.pch"; sourceTree = "<group>"; };
 		90BF2C8515F011D70056D45D /* VVAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VVAppDelegate.h; sourceTree = "<group>"; };
 		90BF2C8615F011D70056D45D /* VVAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVAppDelegate.m; sourceTree = "<group>"; };
-		90BF2C8D15F012170056D45D /* VVUltimosTweetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VVUltimosTweetsViewController.h; path = ../VVUltimosTweetsViewController.h; sourceTree = "<group>"; };
-		90BF2C8E15F012170056D45D /* VVUltimosTweetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VVUltimosTweetsViewController.m; path = ../VVUltimosTweetsViewController.m; sourceTree = "<group>"; };
 		90BF2C9015F016A30056D45D /* VVTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVTweet.h; sourceTree = "<group>"; };
 		90BF2C9115F016A30056D45D /* VVTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVTweet.m; sourceTree = "<group>"; };
+		90C4F2B815F01D3A001788BE /* VVUltimosTweetsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VVUltimosTweetsViewController.h; sourceTree = "<group>"; };
+		90C4F2B915F01D3A001788BE /* VVUltimosTweetsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VVUltimosTweetsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +80,8 @@
 				90BF2C7D15F011D70056D45D /* Supporting Files */,
 				90BF2C8515F011D70056D45D /* VVAppDelegate.h */,
 				90BF2C8615F011D70056D45D /* VVAppDelegate.m */,
-				90BF2C8D15F012170056D45D /* VVUltimosTweetsViewController.h */,
-				90BF2C8E15F012170056D45D /* VVUltimosTweetsViewController.m */,
+				90C4F2B815F01D3A001788BE /* VVUltimosTweetsViewController.h */,
+				90C4F2B915F01D3A001788BE /* VVUltimosTweetsViewController.m */,
 				90BF2C9015F016A30056D45D /* VVTweet.h */,
 				90BF2C9115F016A30056D45D /* VVTweet.m */,
 			);
@@ -164,7 +163,6 @@
 			files = (
 				90BF2C8315F011D70056D45D /* main.m in Sources */,
 				90BF2C8715F011D70056D45D /* VVAppDelegate.m in Sources */,
-				90BF2C8F15F012170056D45D /* VVUltimosTweetsViewController.m in Sources */,
 				90BF2C9215F016A30056D45D /* VVTweet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +267,7 @@
 				90BF2C8C15F011D70056D45D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
