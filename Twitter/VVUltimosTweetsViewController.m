@@ -18,14 +18,12 @@
 
 - (void) viewDidLoad
 {
-    NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1/statuses/user_timeline.json?screen_name=vitorvellozo&count=10"];
+    NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1/statuses/user_timeline.json?screen_name=vitorvellozo&count=100"];
     NSData *data = [NSData dataWithContentsOfURL:url];
     
     NSMutableArray *tweets = [NSJSONSerialization JSONObjectWithData:data 
                                     options:NSJSONReadingMutableContainers 
                                       error:nil];
-
-//    NSLog(@"%@", [tweets objectAtIndex:0]);
     
     self.ultimosTweets = [[NSMutableDictionary alloc] init];
     for (NSDictionary *tweetDict in tweets) {
@@ -75,6 +73,15 @@
     }
     
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *parOuImpar = [[self.ultimosTweets allKeys] objectAtIndex:section];
+    return parOuImpar;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    return @"FIM DA SECTION";
 }
 
 @end
