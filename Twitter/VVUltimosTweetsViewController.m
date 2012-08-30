@@ -34,25 +34,9 @@
         
         int indice = [tweets indexOfObject:tweetDict];
         if (indice % 2 == 0) {
-//            NSMutableArray *tweetsPares = [self.ultimosTweets objectForKey:@"Par"];
-//            if (!tweetsPares) {
-//                tweetsPares = [[NSMutableArray alloc] init];
-//                [self.ultimosTweets setObject:tweetsPares forKey:@"Par"];
-//            }
-//            [tweetsPares addObject:tweet];
-
             [self addObject:tweet forKey:@"Par"];
-            
         } else {
-//            NSMutableArray *tweetsImpares = [self.ultimosTweets objectForKey:@"Impar"];
-//            if (!tweetsImpares) {
-//                tweetsImpares = [[NSMutableArray alloc] init];
-//                [self.ultimosTweets setObject:tweetsImpares forKey:@"Impar"];
-//            }
-//            [tweetsImpares addObject:tweet];
-            
             [self addObject:tweet forKey:@"Impar"];
-            
         }
         
     }
@@ -67,6 +51,30 @@
         [self.ultimosTweets setObject:tweets forKey:chave];
     }
     [tweets addObject:tweet];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [[self.ultimosTweets allKeys] count];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSString *parOuImpar = [[self.ultimosTweets allKeys] objectAtIndex:section];
+    NSMutableArray *tweets = [self.ultimosTweets objectForKey:parOuImpar];
+    return [tweets count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *parOuImpar = [[self.ultimosTweets allKeys] objectAtIndex:indexPath.section];
+    NSMutableArray *tweets = [self.ultimosTweets objectForKey:parOuImpar];
+    VVTweet *tweet = [tweets objectAtIndex:indexPath.row];
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        cell.textLabel.text = tweet.text;
+    }
+    
+    return cell;
 }
 
 @end
