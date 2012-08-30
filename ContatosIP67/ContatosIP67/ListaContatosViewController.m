@@ -192,6 +192,10 @@
 - (void) mostrarMapa {
     NSString *url = [[NSString stringWithFormat:@"http://maps.google.com/maps?q=%@", contatoSelecionado.endereco] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [self abrirAplicativoComURL:url];
+    
+//    ContatosNoMapaViewController *mapaView = [ContatosNoMapaViewController new];
+//    [mapaView set setContato:contatoSelecionado];
+//    [self.navigationController pushViewController:siteView animated:YES];
 }
 
 - (void) enviarEmail {

@@ -8,16 +8,18 @@
 
 #import "ContatoFormViewController.h"
 #import "Contato.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation ContatoFormViewController
 
-@synthesize nomeTextField, telefoneTextField, emailTextField, enderecoTextField, siteTextField, twitterTextField;
+@synthesize nomeTextField, telefoneTextField, emailTextField, enderecoTextField, siteTextField, twitterTextField, latitudeTextField, longitudeTextField;
 @synthesize contatos = _contatos;
 @synthesize contato;
 @synthesize delegate;
 @synthesize botaoFoto;
 @synthesize campoAtual;
 @synthesize scroll;
+@synthesize botaoLocalizacao;
 
 // sobreescrita do metodo init para quando a tela for criada, tambem iniciara o array.
 - (id) init {
@@ -74,9 +76,9 @@
     // Do any additional setup after loading the view from its nib.
     
     // criando o observador para receber mensagens
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tecladoApareceu:) name:UIKeyboardDidShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tecladoSumiu:) name:UIKeyboardDidHideNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tecladoApareceu:) name:UIKeyboardDidShowNotification object:nil];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tecladoSumiu:) name:UIKeyboardDidHideNotification object:nil];
     
     if (self.contato) {
         nomeTextField.text = contato.nome;
@@ -85,6 +87,8 @@
         enderecoTextField.text = contato.endereco;
         siteTextField.text = contato.site;
         twitterTextField.text = contato.twitter;
+        latitudeTextField.text = [contato.latitude stringValue];
+        longitudeTextField.text = [contato.longitude stringValue];
         
         if (contato.foto) {
             [botaoFoto setImage:contato.foto forState:UIControlStateNormal];
@@ -99,9 +103,9 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     
 }
 
@@ -121,6 +125,8 @@
     [contato setEndereco:[enderecoTextField text]];
     [contato setSite:[siteTextField text]];
     [contato setTwitter:[twitterTextField text]];
+    [contato setLatitude:[NSNumber numberWithFloat:[[latitudeTextField text] floatValue]]];
+    [contato setLongitude:[NSNumber numberWithFloat:[[longitudeTextField text] floatValue]]];
     
     if (botaoFoto.imageView.image) {
         contato.foto = botaoFoto.imageView.image;
@@ -132,20 +138,32 @@
 // metodo responsavel por verificar quando o proximo textfield devera ser acionado, ou receber
 // a responsabilidade de controle sobre o keyboard.
 - (IBAction) proximoElemento:(UITextField *)textField {
-    // Campos em ordem na tela: nome, telefone, email, twitter, endereco, site.
+    // Campos em ordem na tela: nome, telefone, email, twitter, endereco, site, longitude, latitude
     
     if (textField == [self nomeTextField]) {
         [[self telefoneTextField] becomeFirstResponder];
+        
     } else if (textField == [self telefoneTextField]) {
         [[self emailTextField] becomeFirstResponder];
+        
     } else if (textField == [self emailTextField]) {
         [[self twitterTextField] becomeFirstResponder];
+        
     } else if (textField == [self twitterTextField]) {
         [[self enderecoTextField] becomeFirstResponder];
+        
     } else if (textField == [self enderecoTextField]) {
-        [[self siteTextField] resignFirstResponder];
+        [[self siteTextField] becomeFirstResponder];
+        
     } else if (textField == [self siteTextField]) {
-        [[self siteTextField] resignFirstResponder];
+        [[self latitudeTextField] becomeFirstResponder];
+        
+    } else if (textField == [self latitudeTextField]) {
+        [[self longitudeTextField] becomeFirstResponder];
+        
+    } else if (textField == [self longitudeTextField]) {
+        [[self longitudeTextField] resignFirstResponder];
+        
     }
     
 }
@@ -214,12 +232,27 @@
     [self presentModalViewController:picker animated:YES];
 }
 
-- (void) tecladoSumiu:(NSNotification *) notification {
-    NSLog(@"Teclado Sumiu");
-}
+//- (void) tecladoSumiu:(NSNotification *) notification {
+//    NSLog(@"Teclado Sumiu");
+//}
+//
+//- (void) tecladoApareceu:(NSNotification *) notification {
+//    NSLog(@"Teclado Apareceu");    
+//}
 
-- (void) tecladoApareceu:(NSNotification *) notification {
-    NSLog(@"Teclado Apareceu");    
+- (IBAction) buscarCoordenadas:(id) sender {
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:enderecoTextField.text
+                 completionHandler:
+     ^(NSArray *resultados, NSError *error) {
+         if (error == nil && [resultados count] > 0) {
+             CLPlacemark *resultado = [resultados objectAtIndex:0];
+             CLLocationCoordinate2D coordenada = resultado.location.coordinate;
+             latitudeTextField.text = [NSString stringWithFormat:@"%f", coordenada.latitude];
+             longitudeTextField.text = [NSString stringWithFormat:@"%f", coordenada.longitude];
+         }
+     }
+     ];
 }
 
 @end
