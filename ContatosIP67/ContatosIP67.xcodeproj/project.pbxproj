@@ -34,6 +34,7 @@
 		9089D37D15E59E840093BB6A /* ListaContatosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9089D37C15E59E840093BB6A /* ListaContatosViewController.m */; };
 		90B93E0A15EEE2C100D32BC5 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 90B93E0915EEE2C100D32BC5 /* TPKeyboardAvoidingScrollView.m */; };
 		90B93E0D15EEE73100D32BC5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B93E0C15EEE73100D32BC5 /* CoreLocation.framework */; };
+		90CB6F5715F15DB900874DC5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CB6F5615F15DB900874DC5 /* CoreData.framework */; };
 		90E40E5915EC251B006C3F75 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E40E5815EC251B006C3F75 /* MessageUI.framework */; };
 		90E40E5C15EC3A38006C3F75 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E40E5B15EC3A38006C3F75 /* Twitter.framework */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,7 @@
 		90B93E0C15EEE73100D32BC5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		90BED1E515E849F900108C71 /* ContatoProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContatoProtocol.h; sourceTree = "<group>"; };
 		90BED1E615E84B0600108C71 /* ListaContatosProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListaContatosProtocol.h; sourceTree = "<group>"; };
+		90CB6F5615F15DB900874DC5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		90E40E5815EC251B006C3F75 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		90E40E5B15EC3A38006C3F75 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90CB6F5715F15DB900874DC5 /* CoreData.framework in Frameworks */,
 				90B93E0D15EEE73100D32BC5 /* CoreLocation.framework in Frameworks */,
 				902DC15F15ED73CC00C01006 /* MapKit.framework in Frameworks */,
 				90E40E5C15EC3A38006C3F75 /* Twitter.framework in Frameworks */,
@@ -127,6 +130,7 @@
 		9073D21715E43FA60050D18F = {
 			isa = PBXGroup;
 			children = (
+				90CB6F5615F15DB900874DC5 /* CoreData.framework */,
 				9073D22C15E43FA60050D18F /* ContatosIP67 */,
 				9073D22515E43FA60050D18F /* Frameworks */,
 				902DC17C15ED903C00C01006 /* Gpx Files */,
