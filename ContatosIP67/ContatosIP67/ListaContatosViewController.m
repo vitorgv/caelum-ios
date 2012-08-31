@@ -16,6 +16,7 @@
 
 @synthesize contatos = _contatos;
 //@synthesize contatoSelecionado;
+@synthesize contexto;
 
 - (id) init {
     self = [super init];
@@ -99,6 +100,7 @@
 - (void) exibeFormulario {
     ContatoFormViewController *form = [[ContatoFormViewController alloc] init];
     form.delegate = self;
+    form.contexto = self.contexto;
     [form setContatos:[self contatos]];
     
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:form];
@@ -133,7 +135,7 @@
         
         UIActionSheet *opcoes = [[UIActionSheet alloc] initWithTitle:contatoSelecionado.nome delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Ligar", @"Enviar Email", @"Visualizar Site", @"Abrir Mapa", @"Twitt it", nil];
         
-        [opcoes showInView:self.view];
+        [opcoes showFromTabBar:self.tabBarController.tabBar];
     }
 }
 

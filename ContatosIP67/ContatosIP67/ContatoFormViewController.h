@@ -20,6 +20,7 @@
 @property(strong) UITextField *campoAtual;
 @property(weak, nonatomic) IBOutlet UIScrollView *scroll;
 @property(strong) IBOutlet UIButton *botaoLocalizacao;
+@property(strong) NSManagedObjectContext *contexto;
 
 - (Contato *) pegaDadosDoFormulario;
 - (IBAction) proximoElemento:(UITextField *)textField;

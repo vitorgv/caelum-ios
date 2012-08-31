@@ -20,6 +20,7 @@
 @synthesize campoAtual;
 @synthesize scroll;
 @synthesize botaoLocalizacao;
+@synthesize contexto;
 
 // sobreescrita do metodo init para quando a tela for criada, tambem iniciara o array.
 - (id) init {
@@ -116,7 +117,10 @@
 // metodo responsavel por receber os dados do formulario e retornar um objeto Contato totalmente preenchido.
 - (Contato *) pegaDadosDoFormulario {
     if (!self.contato) {
-        contato = [Contato new];
+//        contato = [Contato new];
+        contato = [NSEntityDescription
+                   insertNewObjectForEntityForName:@"Contato"
+                   inManagedObjectContext:self.contexto];
     }
     
     [contato setNome:[nomeTextField text]];

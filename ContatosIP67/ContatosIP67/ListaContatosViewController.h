@@ -17,9 +17,9 @@
 
 @property(strong) NSMutableArray *contatos;
 //@property(strong) Contato *contatoSelecionado;
+@property(strong) NSManagedObjectContext *contexto;
 
 - (void) exibeFormulario;
-
 - (void) exibeMaisAcoes:(UIGestureRecognizer *) gesture;
 
 @end
