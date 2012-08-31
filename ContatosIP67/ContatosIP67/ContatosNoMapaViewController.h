@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MKMapView.h>
 
-@interface ContatosNoMapaViewController : UIViewController
-
-@property (weak, nonatomic) IBOutlet MKMapView *mapa;
-
+@interface ContatosNoMapaViewController : UIViewController<MKMapViewDelegate>
+@property(nonatomic ,strong) NSMutableArray *contatos;
+@property(nonatomic, weak) IBOutlet MKMapView *mapa;
 @end

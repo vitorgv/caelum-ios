@@ -49,8 +49,10 @@
     
     //
     ContatosNoMapaViewController *contatosMapa = [[ContatosNoMapaViewController alloc] init];
+    contatosMapa.contatos = self.contatos;
     //[contatosMapa setTitle:@"Mapa dos Contatos"];
     UINavigationController *mapaNavigation = [[UINavigationController alloc] initWithRootViewController:contatosMapa];
+    
     
     //
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
